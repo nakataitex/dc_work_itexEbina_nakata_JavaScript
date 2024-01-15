@@ -1,47 +1,43 @@
 const actx = new AudioContext();// WebAudioAPIコンテキスト
 let oscillator = null; //オシレーターのnull指定
 
-// ↓ドのコード 
-//const c4 = document.querySelector("#c4");
-const $c4 = $("#c4");
-//ド再生用
-function c4_start() {
-    oscillator = actx.createOscillator();
-    oscillator.type = "sine";
-    oscillator.frequency.setValueAtTime(261.626, actx.currentTime);//周波数
-    oscillator.connect(actx.destination);
-    oscillator.start();
+// 定数宣言
+const scaleHz = [261.626, 293.665, 329.628, 349.228, 392.000, 440.000, 493.883];//音階
+const scale = ["ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ"];//表示用の音階
+const piano_status = $(".sound_view span");//音階を文字として表示する際に使う
+const key = $(".key");//キー管理用
+let scaleHideCount = null;//表示された音階を非表示にするタイマー
+
+
+
+/* 
+//音階を挿入(追加機能に鍵盤を追加する機能を実装する場合に使えそう)
+for (let i = 0; i < key.length; i++) {
+    $(key[i]).text(scale[i % scale.length]);
 }
+ */
 
-//ド停止用
-function c4_stop() {
-    oscillator.stop();
-}
+//鍵盤を押した時の挙動
+$(".key").on("mousedown", function () {
+    let i = $(".key").index(this);//キーの場所を
+    oscillator = actx.createOscillator();//オシレーター作成
+    oscillator.type = "sine";//波の種類
+    oscillator.frequency.setValueAtTime(scaleHz[i], actx.currentTime);//押されたキーによって音を変える様に
+    oscillator.connect(actx.destination);//出力先に接続
+    oscillator.start();//開始
+    piano_status.text(scale[i]);//音を文字として表示
+    clearTimeout(scaleHideCount);//音階を表示中に"なし"が割り込んで表示されない様に
+});
 
-//ドのイベント管理
-$(c4).on('mousedown', c4_start);
-$(c4).on('mouseup', c4_stop);
-
-
-
-// ↑ここまでドのコード　　↓以下レのコード
-
-const $d4 = $("#d4"); //レの音
-
-//レ再生用
-function d4_start() {
-    oscillator = actx.createOscillator();
-    oscillator.type = "sine";//波形
-    oscillator.frequency.setValueAtTime(293.665, actx.currentTime);//レの音
-    oscillator.connect(actx.destination);
-    oscillator.start();
-}
-
-//レ停止用
-function d4_stop() {
-    oscillator.stop();
-}
-
-//レのイベント管理
-$(d4).on('mousedown', d4_start);
-$(d4).on('mouseup', d4_stop);
+//マウスが離された時の挙動
+$(document).on("mouseup", function () {
+    // オシレーターを停止する
+    if (oscillator) {
+        oscillator.stop();
+        oscillator = null;
+        //音が消えてから1秒後に「ステータス:なし」と表示されるように変更
+        scaleHideCount = setTimeout(function () {
+            piano_status.text("なし");
+        }, 1000);
+    }
+});

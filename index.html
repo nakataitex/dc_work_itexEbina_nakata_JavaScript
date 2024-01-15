@@ -2,26 +2,33 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Piano</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>piano</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="piano"><!-- 表示するピアノ -->
-        <button class="keyboard" id="c4">ド</button>
-        <button class="keyboard" id="d4">レ</button>
-        <!--未実装
-        <button class="keyboard" id="key3">ミ</button>
-        <button class="keyboard" id="key4">ファ</button>
-        <button class="keyboard" id="key5">ソ</button>
-        <button class="keyboard" id="key6">ラ</button>
-        <button class="keyboard" id="key7">シ</button> -->
-
+    <div class="piano_tool">
+        <div class="sound_view"><!-- ステータス表示 -->
+            <p>ステータス:<span>なし</span></p>
+        </div>
+        <div class="piano"><!-- 鍵盤 -->
+            <button class="key">ド</button>
+            <button class="key">レ</button>
+            <button class="key">ミ</button>
+            <button class="key">ファ</button>
+            <button class="key">ソ</button>
+            <button class="key">ラ</button>
+            <button class="key">シ</button>
+        </div>
+        <div class="extra"><!-- その他の機能 -->
+            <button id="add_button">追加機能</button>
+            <button id="auto_mode">自動演奏</button>
+        </div>
     </div>
-    <script src="./js/main.js"></script><!-- 簡易ピアノのスクリプト。headに置くと有効にならなかった。 -->
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
