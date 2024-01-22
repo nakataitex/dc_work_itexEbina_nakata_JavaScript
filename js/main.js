@@ -10,23 +10,19 @@ const piano_status = $(".sound_view span");//音階を文字として表示す�
 let scaleHideCount = null;//表示された音階を非表示にするタイマー
 
 //基本的な箇所の定数宣言
-var actx = new AudioContext();
+var actx = new AudioContext();// WebAudioAPIコンテキスト
 var oscillator = null;
-const scaleHz = [261.626, 293.665, 329.628, 349.228, 392.000, 440.000, 493.883];//C4から1オクターブ分の周波数
+/* const scaleHz = [261.626, 293.665, 329.628, 349.228, 392.000, 440.000, 493.883];//C4から1オクターブ分の周波数
+小数点以下がある事で処理落ちしてるかもしれないので試しに↓を使用 */
+const scaleHz = [261, 293, 329, 349, 392, 440, 493];//C4から1オクターブ分の周波数
 const scale = ["ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ"];//表示用の音階
 
 //音量管理
 var gainNode = actx.createGain();
 var volume = $("#volume").val();//ボリューム管理用
+var GainToVolume = (Math.floor(volume * 100) / 100);
 
-//音量を変更
-function changeVolume() {
-    var volume = $("#volume").val();
-    $("#volume_view").text(parseInt(volume, 10) + '%');
-    gainNode.gain.value = volume / 100;
-}
-
-//音量バー操作時に実行
+// ボリュームを変更
 $("#volume").on("change", function () {
     var volume = $("#volume").val();
     $("#volume_view").text(parseInt(volume, 10) + '%');
@@ -48,7 +44,6 @@ $(".piano").on("mousedown", ".key", function () {
 
 //マウスが離された時の挙動
 $(document).on("mouseup", function () {
-    // オシレーターを停止する
     if (oscillator) {
         oscillator.stop();
         oscillator = null;
@@ -58,4 +53,3 @@ $(document).on("mouseup", function () {
         }, 1000);
     }
 });
-
