@@ -1,8 +1,9 @@
 //ページが読み込まれた時に鍵盤を1オクターブ分設置するスクリプト
 window.onload = function () {
     for (let i = 0; i < 7; i++) {
-        $('.piano').append(`<div class='key'><button>${scale[i]}</button></div>`);
+        $(".piano").append(`<div class='key'><button>${scale[i]}</button></div>`);
     };
+    $("#volume_view").text($("#volume").val() + "%");
 }
 
 //ピアノに盛り込む機能の定数･変数
