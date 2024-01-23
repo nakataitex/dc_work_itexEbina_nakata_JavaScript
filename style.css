@@ -1,6 +1,27 @@
 .piano_tool {
-    width: 450px;
+    width: 500px;
     margin: 0 auto;
+}
+
+.sound_view {
+    height: 100px;
+    width: 300px;
+    border: 3px solid #000;
+    box-sizing: content-box;
+    margin: 0 auto 50px auto;
+}
+
+#scale_View {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    text-align: center;
+    box-sizing: content-box;
+    line-height: 30px;
+}
+
+#autoplay_text {
+    font-size: 20px;
 }
 
 .piano {
@@ -19,23 +40,8 @@
     box-shadow: 0 5px 0 0 #000;
 }
 
-
-.sound_view {
-    margin: 0 auto 50px auto;
-    box-sizing: content-box;
-    border: 3px solid #000;
-    width: 300px;
-    height: 100px;
-}
-
-.sound_view p, .sound_view p span {
-    font-size: 30px;
-    height: 30px;
-    box-sizing: content-box;
-    text-align: center;
-    line-height: 30px;
-}
-
 .extra {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
