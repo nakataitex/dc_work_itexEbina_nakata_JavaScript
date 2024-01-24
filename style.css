@@ -3,8 +3,15 @@
 }
 
 .sound_view {
-    margin: 50px auto;
+    margin: 20px auto;
     height: 100px;
+}
+
+#autoplay_text {
+    font-size: 20px;
+    vertical-align: bottom;
+    text-align: center;
+    height: 20px;
 }
 
 #scale_view {
@@ -16,12 +23,6 @@
     vertical-align: bottom;
     line-height: 50px;
     margin: 0 auto;
-}
-
-#autoplay_text {
-    font-size: 20px;
-    vertical-align: bottom;
-    text-align: center;
 }
 
 .piano {
