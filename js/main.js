@@ -163,6 +163,5 @@ function playSong(note) {
         oscillator.frequency.setValueAtTime(scaleHz[index], actx.currentTime);
         oscillator.connect(actx.destination);
         oscillator.start();
-
     };
 }
