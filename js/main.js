@@ -34,6 +34,7 @@ $(".piano").on("mousedown", ".key", function () {
 $(document).on("mouseup", function () {
     if (oscillator && !playing) {
         oscillator.stop();
+        oscillator.disconnect();
         oscillator = null;
         //音が消えてから1秒後非表示に変更
         scaleHideCount = setTimeout(function () {
@@ -41,7 +42,6 @@ $(document).on("mouseup", function () {
         }, 1000);
     }
 });
-
 
 //以下、自動演奏
 //チューリップの楽譜
@@ -122,6 +122,7 @@ function stopPlay() {
     piano_status.text("");
     if (oscillator) {
         oscillator.stop();
+        oscillator.disconnect();
         oscillator = null;
     };
 }
@@ -152,6 +153,7 @@ function startPlay() {
 function playSong(note) {
     if (oscillator) {
         oscillator.stop();
+        oscillator.disconnect();
         oscillator = null;
     }
     if (note !== "休符") {
