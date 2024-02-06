@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Piano</title>
-    <script src="./js/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>PianoTool</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <link rel="stylesheet" href="./style.css">
 
+</head>
 <body>
     <div class="piano_tool">
-        <div class="sound_view"><!-- ステータス表示 -->
-            <p id="autoplay_text"></p>
-            <p id="scale_view"></p>
+        <div class="text_area">
+            <div id="sound_view"></div>
+            <div id="autoplay_text"></div>
         </div>
-        <div class="piano"><!-- ここに鍵盤を追加 -->
+        <div class="piano">
+            <div class="key">ド</div>
+            <div class="key">レ</div>
+            <div class="key">ミ</div>
+            <div class="key">ファ</div>
+            <div class="key">ソ</div>
+            <div class="key">ラ</div>
+            <div class="key">シ</div>
         </div>
-        <div class="extra"><!-- その他の機能 -->
-            <button id="auto_mode"></button>
-            <p id="volume_view"></p>
+        <div class="extra">
+            <button id="playButton">自動演奏</button>
+            <div class="volume">
+                <input type="range" id="volume_control" min="0" max="1" step="0.01" value="0.5">
+                <p id="volume_view"></p>
+            </div>
         </div>
     </div>
-    <script src="./js/main.js"></script>
+    <script src="./tonepiano.js"></script>
 </body>
-
 </html>
