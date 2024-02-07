@@ -8,18 +8,28 @@
     height: 100px;
 }
 
+
 #autoplay_text {
     font-size: 20px;
     vertical-align: bottom;
     text-align: center;
     height: 20px;
+    margin-bottom: 30px;
 }
 
-#sound_view {
+.sound_text {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.sound_view {
+    width: 70px;
     height: 50px;
-    width: 60px;
-    border: 3px solid #000;
-    font-size: 30px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    font-size: 25px;
     text-align: center;
     vertical-align: bottom;
     line-height: 50px;
@@ -32,6 +42,7 @@
 }
 
 .key {
+    font-size: 16px;
     width: 50px;
     height: 100px;
     border: 1px solid #000;
@@ -39,15 +50,6 @@
     box-shadow: 0 5px 0 0 #000;
     border-radius: 3px;
 }
-
-.key:active {
-    background-color: rgb(255, 255, 0);
-    box-shadow: none;
-    position: relative;
-    top: 5px;
-}
-
-
 
 .extra {
     margin: 20px 30px;
@@ -58,7 +60,7 @@
 #playButton {
     height: 25px;
 }
-
+F
 .volume_view {
     display: block;
 }

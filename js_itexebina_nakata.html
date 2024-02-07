@@ -12,17 +12,25 @@
 <body>
     <div class="piano_tool">
         <div class="text_area">
-            <div id="sound_view"></div>
             <div id="autoplay_text"></div>
+            <div class="sound_text">
+                <div class="sound_view"></div>
+                <div class="sound_view"></div>
+                <div class="sound_view"></div>
+                <div class="sound_view"></div>
+                <div class="sound_view"></div>
+                <div class="sound_view"></div>
+                <div class="sound_view"></div>
+            </div>
         </div>
         <div class="piano">
-            <div class="key">ド</div>
-            <div class="key">レ</div>
-            <div class="key">ミ</div>
-            <div class="key">ファ</div>
-            <div class="key">ソ</div>
-            <div class="key">ラ</div>
-            <div class="key">シ</div>
+            <div class="key">ド(A)</div>
+            <div class="key">レ(S)</div>
+            <div class="key">ミ(D)</div>
+            <div class="key">ファ(F)</div>
+            <div class="key">ソ(G)</div>
+            <div class="key">ラ(H)</div>
+            <div class="key">シ(J)</div>
         </div>
         <div class="extra">
             <button id="playButton">自動演奏</button>
@@ -33,5 +41,6 @@
         </div>
     </div>
     <script src="./tonepiano.js"></script>
+    <script src="./SongNote.js"></script>
 </body>
 </html>
