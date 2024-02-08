@@ -19,9 +19,11 @@ $(window).on("load", function () {
       Tone.start();
       clearTimeout(soundTimeoutCount[i]);
       $(".sound_view").eq(i).text(text[i]);
+      console.log(`${text[i]}が押されてます`);
     }
   }
 
+  
   //音を停止
   function stopSound(i) {
     if (!playing) {
@@ -34,6 +36,8 @@ $(window).on("load", function () {
     }
   }
 
+
+  
   //マウスを押した時
   $(".key").on("mousedown", function () {
     let i = $(".key").index(this);
@@ -49,7 +53,7 @@ $(window).on("load", function () {
   //キーを押して再生
   $(document).on("keydown", function (e) {
     let i = e.key;
-    if (keyBind[i] !== -1 && !e.repeat) {
+    if (keyBind[i] !== undefined && !e.repeat) {
       playSound(keyBind[i]);
     }
   });
@@ -57,7 +61,7 @@ $(window).on("load", function () {
   //キーを離した時
   $(document).on("keyup", function (e) {
     let i = e.key;
-    if (keyBind[e.key] !== -1) {
+    if (keyBind[e.key] !== undefined) {
       stopSound(keyBind[i]);
     }
   });
