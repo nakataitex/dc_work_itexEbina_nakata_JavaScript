@@ -137,6 +137,7 @@ $(window).on("load", function () {
       volume.volume.value = -Infinity;
     } else {
       volume.volume.value = volumeValue * 40 - 40;
+      console.log(volume.volume.value);
     }
   });
 });
