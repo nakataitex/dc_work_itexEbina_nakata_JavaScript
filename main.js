@@ -76,7 +76,7 @@ $(window).on("load", function () {
 
   //自動演奏
   function playSong(song) {
-    $("#autoplay_text").text(`${song.name}を演奏中`);
+    $("#autoplay_text").text(`自動演奏中です：${song.name}`);
     let totalDuration = 0;
     stopAutoPlay = false;
     for (let i = 0; i < autoPlayTimeout.length; i++) {
